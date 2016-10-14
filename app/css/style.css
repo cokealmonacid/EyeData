@@ -1,0 +1,59 @@
+html, body {
+    margin: 0;
+    height: 100%;
+}
+
+body{
+	font-size: 18px;
+	margin:0;
+	padding:0;
+}
+
+header{
+	background: #0088cc;
+	color: #FFFFFF;
+	overflow: hidden;
+	padding: 4em 1em .5em 1em;
+	text-align: center;
+}
+
+header h2{
+	display: inline-block;
+	font-family: 'Lato', sans-serif;
+	float: left;
+	margin:0;
+}
+
+header p{
+	display: inline-block;
+	font-family: 'Roboto', sans-serif;
+	font-size: 16px;
+	float: right;
+	margin: 0;
+	padding-top: .5em;
+}
+
+.container{
+	font-family: 'Roboto', sans-serif;
+	height: 410px;
+	padding:1em;
+}
+
+.container form{
+	margin-top: 50px;
+}
+
+.container form label{
+	color: #0088cc;
+	display: block;
+	font-weight: 700;
+	font-size: 15px;
+}
+
+.container form label p{
+	margin-bottom: 10px;
+}
+
+.container form input{
+	display: block;
+}
