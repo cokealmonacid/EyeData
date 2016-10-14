@@ -13,47 +13,69 @@ header{
 	background: #0088cc;
 	color: #FFFFFF;
 	overflow: hidden;
-	padding: 4em 1em .5em 1em;
+	padding: 1em 1em .5em 1em;
 	text-align: center;
 }
 
 header h2{
-	display: inline-block;
 	font-family: 'Lato', sans-serif;
-	float: left;
 	margin:0;
-}
-
-header p{
-	display: inline-block;
-	font-family: 'Roboto', sans-serif;
-	font-size: 16px;
-	float: right;
-	margin: 0;
-	padding-top: .5em;
 }
 
 .container{
 	font-family: 'Roboto', sans-serif;
 	height: 410px;
-	padding:1em;
+	padding:1em 3em;
+}
+
+.container p{
+	text-align: center;
 }
 
 .container form{
-	margin-top: 50px;
+	margin-top: 60px;
 }
 
 .container form label{
 	color: #0088cc;
 	display: block;
 	font-weight: 700;
-	font-size: 15px;
+	font-size: 14px;
 }
 
-.container form label p{
+.container form label>p{
 	margin-bottom: 10px;
+	text-align: left;
 }
 
 .container form input{
+	border: none !important;
+	border-bottom: 2px solid #bcbcbc!important;
 	display: block;
+	font-size: 20px;
+	width: 100% !important;
+}
+
+.container form input:focus{
+	outline: none;
+}
+
+.container form #image-input input{
+	border-bottom: none !important;
+	font-size: 10px !important;
+}
+
+.container form #start-button{
+	margin-top: 2em;
+}
+
+.container form #start-button button{
+	background: #0088cc;
+	border:none !important;
+	border-radius:5px;
+	color:#FFFFFF;
+	font-size:1em;
+	padding: .6em;
+	text-align: center;
+	width: 100% !important;
 }

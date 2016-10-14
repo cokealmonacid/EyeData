@@ -10,29 +10,31 @@
   <body>
 
   <header>
-
+    <img src="img/eye.png">
     <h2>EyeData</h2>
-    <p>A smart solution for marketing</p>
-
   </header>
 
   <div class="container">
-
+      <p>A smart solution for marketing</p>
     <form>
 
       <div class="form-section">
-        <label><p>TEST NAME</p></label>
+        <label><p>NAME OF TEST</p></label>
         <input type="text" name="testName">      
       </div>
 
       <div class="form-section">
-        <label><p>Test name</p></label>
-        <input>
+        <label><p>TEST SAMPLING(seg)</p></label>
+        <input type="number" name="testTime">
       </div>
         
-      <div class="form-section">
-        <label><p>Test name</p></label>
-        <input>
+      <div class="form-section" id="image-input">
+        <label><p>IMAGE</p></label>
+        <input type="file" name="testFile">
+      </div>
+
+      <div class="form-section" id="start-button">
+        <button>Start</button>
       </div>
       
     </form>
