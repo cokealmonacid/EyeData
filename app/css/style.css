@@ -79,3 +79,21 @@ header h2{
 	text-align: center;
 	width: 100% !important;
 }
+
+@keyframes glowingFeedback{
+    from {
+    	font-size: 10px;
+    }
+    to {
+    	font-size: 14px;
+    }
+}
+
+.container form .feedback p{
+	color: #ef5b5b;
+    animation-name: glowingFeedback;
+    animation-duration: .5s;
+	font-size: 14px;
+	margin:0;
+	margin-top:.5em;
+}

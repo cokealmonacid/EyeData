@@ -20,27 +20,31 @@
 
       <div class="form-section">
         <label><p>NAME OF TEST</p></label>
-        <input type="text" name="testName">      
+        <input type="text" name="testName" id="testName">    
+        <div class="feedback" id="testName-feedback"></div>  
       </div>
 
       <div class="form-section">
         <label><p>TEST SAMPLING(seg)</p></label>
-        <input type="number" name="testTime">
+        <input type="number" name="testTime" id="testTime">
+        <div class="feedback" id="testTime-feedback"></div>  
       </div>
         
       <div class="form-section" id="image-input">
         <label><p>IMAGE</p></label>
-        <input type="file" name="testFile">
+        <input type="file" name="testFile" id="testFile">
+        <div class="feedback" id="testFile-feedback"></div>  
       </div>
 
       <div class="form-section" id="start-button">
-        <button>Start</button>
+        <button id="button" type="button">Start</button>
       </div>
       
     </form>
 
   </div>
-
+  <script type="text/javascript" src="js/valid.js"></script>
+  <script type="text/javascript" src="js/script.js"></script>
 
   </body>
 </html>
