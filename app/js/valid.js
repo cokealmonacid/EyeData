@@ -5,8 +5,10 @@ function isValid($input) {
 	if ($validate.length == 0) {
 		if ($input.id == 'testTime' || $input.id == 'testName' || $input.id == 'testFile') {
 			document.getElementById($input.id + '-feedback').innerHTML = $feedback;
+			return false;
 		}
 	} else {
 		document.getElementById($input.id + '-feedback').innerHTML = '';
+		return true;
 	}
 }
