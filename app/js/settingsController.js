@@ -24,14 +24,18 @@ button.onclick = function testFunction(){
     	return 0;
     }
 
-    /*
+    if (!getExtension(document.getElementById('testFile').value)) {
+        return 0;
+    }
 
-    screen.loadURL(`file://${__dirname}/test/lookingPosition.html`);
+    localStorage.setItem("test-name", document.getElementById('testName').value);
+    localStorage.setItem("test-time", document.getElementById('testTime').value);
+    localStorage.setItem("test-file", document.getElementById('testFile').file);
+
+    screen.loadURL(`file://${__dirname}/lookingPosition.html`);
 
     screen.setResizable(true);
     screen.setFullScreen(true);
-
-    */
    
 }
 
