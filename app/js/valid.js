@@ -15,7 +15,6 @@ function isValid(input) {
 
 function getExtension(file) {
 	var ext = file.split('.').pop().toLowerCase();
-	console.log(ext);
 	if (ext != 'jpg' && ext != 'png') {
 		document.getElementById('testFile-feedback').innerHTML = '<p>File extension not valid</p>';
 		return false;

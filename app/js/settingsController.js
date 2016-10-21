@@ -28,14 +28,13 @@ button.onclick = function testFunction(){
         return 0;
     }
 
+    localStorage.setItem("test-file", document.getElementById('testFile').files[0].path);
     localStorage.setItem("test-name", document.getElementById('testName').value);
     localStorage.setItem("test-time", document.getElementById('testTime').value);
-    localStorage.setItem("test-file", document.getElementById('testFile').file);
 
     screen.loadURL(`file://${__dirname}/lookingPosition.html`);
 
     screen.setResizable(true);
     screen.setFullScreen(true);
-   
 }
 
