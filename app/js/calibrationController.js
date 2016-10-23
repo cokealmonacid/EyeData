@@ -1,40 +1,104 @@
-document.addEventListener("DOMContentLoaded", function(event) { 
-	var remote = require('electron').remote;
+document.addEventListener("DOMContentLoaded", function(event) {
+  var gTotal = 0;
+  var gArea = 0;
+  var fixationArea = document.getElementById('dot');
+  var remote = require('electron').remote;
 
-	var delay=1500; 
+  EyeTribe.loop(function(frame) {
+    if (gTotal == 0) {
+      fixationArea.style.top = "5%";
+      fixationArea.style.left = "5%";
+      fixationArea.style.visibility = "visible";
+    }
 
-	setTimeout(function() {
+    if (gTotal == 100) {
+      fixationArea.style.left = "45%";
+    }
 
-		var control = true;
+    if (gTotal == 200) {
+      fixationArea.style.left = "90%";
+    }
 
-		var body = document.body;
-		body.style.background = "url(../app/img/dot.png) no-repeat";
-		body.style.backgroundSize =  "60px";
+    if (gTotal == 300) {
+      fixationArea.style.top = "45%";
+      fixationArea.style.left = "5%";
+    }
 
-		var cont = 1;
+    if (gTotal == 400) {
+      fixationArea.style.left = "45%";
+    }
 
-		setInterval(function(){
-			switch(cont) {
-				case 1:
-					body.style.backgroundPosition = "left top";
-					break;
-				case 2:
-					body.style.backgroundPosition = "right top";
-					break;
-				case 3:
-					body.style.backgroundPosition = "left bottom";
-					break;
-				case 4:
-					body.style.backgroundPosition = "right bottom";
-					break;
-				case 5:
-					body.style.backgroundPosition = "center center";
-					break;
-			}
+    if (gTotal == 500) {
+      //center right
+      fixationArea.style.left = "90%";
+    }
 
-			cont += 1;
-		} , 3000);
+    if (gTotal == 600) {
+      //bottom left
+      fixationArea.style.top = "85%";
+      fixationArea.style.left = "5%";
+    }
 
-	}, delay);
+    if (gTotal == 700) {
+      //bottom center
+      fixationArea.style.left = "45%";
+    }
+
+    if (gTotal == 800) {
+      //bottom right
+      fixationArea.style.left = "90%";
+    }
+
+    if (gTotal == 900) {
+      fixationArea.style.left = "45%";
+      fixationArea.style.top = "45%";
+    }
+
+    if (gTotal > 950) {
+      document.getElementById('dot').style.width = "200px"
+      fixationArea.innerHTML = "<p>Press Space bar to continue";
+      fixationArea.style.left = "40%";
+    }
+
+    gTotal += 1;
+  })    
+
+    window.onkeypress = function(e) {
+    console.log(e);
+    if (e.charCode == 32) { // spacebar
+      var screen = remote.getCurrentWindow();
+      screen.loadURL(`file://${__dirname}/lookingPosition.html`);
+    }
+
+    if (e.charCode == 81) { // Quit
+      var screen = remote.getCurrentWindow();
+      screen.loadURL(`file://${__dirname}/calibration.html`)
+    }
+  };
+
 });
 
+
+function getPosition(el) {
+  var xPos = 0;
+  var yPos = 0;
+ 
+  while (el) {
+    if (el.tagName == "BODY") {
+      var xScroll = el.scrollLeft || document.documentElement.scrollLeft;
+      var yScroll = el.scrollTop || document.documentElement.scrollTop;
+ 
+      xPos += (el.offsetLeft - xScroll + el.clientLeft);
+      yPos += (el.offsetTop - yScroll + el.clientTop);
+    } else {
+      xPos += (el.offsetLeft - el.scrollLeft + el.clientLeft);
+      yPos += (el.offsetTop - el.scrollTop + el.clientTop);
+    }
+ 
+    el = el.offsetParent;
+  }
+  return {
+    x: xPos,
+    y: yPos
+  };
+}
