@@ -54,10 +54,22 @@ document.addEventListener("DOMContentLoaded", function(event) {
       fixationArea.style.top = "45%";
     }
 
-    if (gTotal > 950) {
-      document.getElementById('dot').style.width = "200px"
-      fixationArea.innerHTML = "<p>Press Space bar to continue";
+    if (gTotal > 1000) {
+      document.getElementById('dot').style.width = "200px";
       fixationArea.style.left = "40%";
+
+      if (gArea >= 500){
+        fixationArea.innerHTML = "<p>Press Space bar to continue</p>";
+      } else {
+        fixationArea.innerHTML = "<p>Failed calibration! press Q to reboot</p>";
+      }
+    }
+
+    var position = getPosition(fixationArea);
+
+    var check = checkArea(position.x, position.y, frame.average);
+    if (check) {
+      gArea += 1;
     }
 
     gTotal += 1;
@@ -70,7 +82,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
       screen.loadURL(`file://${__dirname}/lookingPosition.html`);
     }
 
-    if (e.charCode == 81) { // Quit
+    if (e.charCode == 113) { // Quit
       var screen = remote.getCurrentWindow();
       screen.loadURL(`file://${__dirname}/calibration.html`)
     }
@@ -101,4 +113,19 @@ function getPosition(el) {
     x: xPos,
     y: yPos
   };
+}
+
+function checkArea(elx, ely, average) {
+  var width = screen.width;
+  var height = screen.height;
+  var gazeX = Math.abs(average.x);
+  var posx1 = elx - 60;
+  var posx2 = elx + 120;
+
+
+  if ((posx1 <= gazeX) && (gazeX <= posx2)) {
+      return true;
+  } else {
+    return false;
+  }
 }
