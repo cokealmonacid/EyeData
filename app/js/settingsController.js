@@ -32,6 +32,20 @@ button.onclick = function testFunction(){
     localStorage.setItem("test-name", document.getElementById('testName').value);
     localStorage.setItem("test-time", document.getElementById('testTime').value);
 
+    var file = document.querySelector('input[type=file]').files[0];
+    var reader = new FileReader();
+
+    reader.onloadend = function (){
+        image = reader.result;
+        localStorage.setItem("image", image);
+    }
+
+    if (file) {
+        reader.readAsDataURL(file);
+    } else {
+        image = "";
+    }
+
     screen.loadURL(`file://${__dirname}/calibration.html`);
 
     screen.setResizable(true);
