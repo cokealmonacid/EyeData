@@ -6,14 +6,17 @@ document.addEventListener("DOMContentLoaded", function(event) {
     	storageBucket: "eyedata-29fce.appspot.com",
     	messagingSenderId: "699419535521"
   	};
-  	firebase.initializeApp(config);
-  	var dbref = new firebase.database().ref('data').orderByKey();
+  firebase.initializeApp(config);
+  var dbref = new firebase.database().ref('data').orderByKey();
 
-	testFile = localStorage.getItem("test-file");
-	testTime = localStorage.getItem("test-time");
-	gazeTotal = 0;
+	var testFile = localStorage.getItem("test-file");
+	var testTime = localStorage.getItem("test-time");
+	var gazeTotal = 0;
 
-	document.body.style.background = "url('"+testFile+"') no-repeat";
+  var imageTest = document.getElementById('image');
+  imageTest.style.maxHeight = screen.height;
+  
+  imageTest.innerHTML = "<img id='image-test'  src='"+testFile+"'>";
 
   	EyeTribe.loop(function(frame) {
   		if (gazeTotal <= (testTime*30)) {
@@ -28,6 +31,4 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
       gazeTotal += 1;
   	})
-
-
 });

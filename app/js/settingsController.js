@@ -47,7 +47,7 @@ button.onclick = function testFunction(){
     }
 
     screen.loadURL(`file://${__dirname}/calibration.html`);
-
+    
     screen.setResizable(true);
     screen.setFullScreen(true);
 }
