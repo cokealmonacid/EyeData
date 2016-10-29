@@ -7,10 +7,12 @@ document.addEventListener("DOMContentLoaded", function(event) {
     	messagingSenderId: "699419535521"
   	};
   firebase.initializeApp(config);
-  var dbref = new firebase.database().ref('data').orderByKey();
+  var dbref = new firebase.database();
 
 	var testFile = localStorage.getItem("test-file");
+  var testName = localStorage.getItem("test-name");
 	var testTime = localStorage.getItem("test-time");
+  var image = localStorage.getItem("image");
 	var gazeTotal = 0;
 
   var imageTest = document.getElementById('image');
@@ -20,13 +22,20 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
   	EyeTribe.loop(function(frame) {
   		if (gazeTotal <= (testTime*30)) {
-        console.log(frame);
+        data = [frame.timestamp, frame.leftEye.average, frame.rightEye.average];
+        dbref.ref('data').child(testName).push(data);
   		} else {
+
+        data = [testTime, image, screen.height, screen.width];
+        dbref.ref('data').child(testName+'_config').push(data);
         document.body.style.background = "none";
         document.body.innerHTML = "<p>Test Complete!</p>";
+        document.body.style.textAlign = "center";
+        document.body.style.paddingTop = "200px";
         localStorage.removeItem("test-file");
         localStorage.removeItem("test-time");
         localStorage.removeItem("test-name");
+        localStorage.removeItem("image");
       }
 
       gazeTotal += 1;
