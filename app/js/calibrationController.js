@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   var remote = require('electron').remote;
 
   EyeTribe.loop(function(frame) {
+    console.log(frame)
     if (gTotal == 0) {
       fixationArea.style.top = "5%";
       fixationArea.style.left = "5%";
@@ -73,7 +74,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     }
 
     gTotal += 1;
-  })    
+  })
 
     window.onkeypress = function(e) {
     console.log(e);

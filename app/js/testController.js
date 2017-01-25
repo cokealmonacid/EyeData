@@ -21,6 +21,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   imageTest.innerHTML = "<img id='image-test'  src='"+testFile+"'>";
 
   	EyeTribe.loop(function(frame) {
+        console.log(frame)
   		if (gazeTotal <= (testTime*30)) {
         data = [frame.timestamp, frame.leftEye.average, frame.rightEye.average];
         dbref.ref('data').child(testName).push(data);
