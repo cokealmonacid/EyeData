@@ -1,6 +1,6 @@
 var remote = require('electron').remote;
 
-button.onclick = function testFunction(){  
+button.onclick = function testFunction(){
 
     var screen = remote.getCurrentWindow();
 
@@ -47,7 +47,6 @@ button.onclick = function testFunction(){
     }
 
     screen.loadURL(`file://${__dirname}/calibration.html`);
-    
     screen.setResizable(true);
     screen.setFullScreen(true);
 }

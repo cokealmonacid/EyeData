@@ -5,9 +5,7 @@ let win
 function createWindow () {
 
   win = new BrowserWindow({
-    width: 400, 
-    height: 600,
-    resizable: false    
+    fullscreen: true
 })
 
   win.loadURL(`file://${__dirname}/app/index.html`)
