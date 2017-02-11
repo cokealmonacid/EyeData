@@ -8,13 +8,14 @@ body{
 	overflow-y: none;
 }
 
-#image{
-	width:100%;
+#image-container{
+	width:100vw;
+	height:100vh;
 	text-align: center;
 }
 
-#image img{
-	width: auto;
-	max-height: 800px;
-	max-width: 1280px;
+#message{
+	display: none;
+	font-size: 30px;
+	font-family: Helvetica;
 }

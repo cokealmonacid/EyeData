@@ -18,32 +18,27 @@ document.addEventListener("DOMContentLoaded", function(event) {
     switch(totalGaze) {
       case 0:
         //centro
-        console.log("centro");
         dot.style.left = (w - imageWidth)/2 + 'px';
         dot.style.top = (h - imageHeight)/2 + 'px';
         break;
       case 100:
         //esq. superior izq.
-        console.log("esquina superior izq");
         dot.style.left = (w * 0.15 - imageWidth) + 'px';
         dot.style.top = (h * 0.25 - imageHeight) + 'px';
         break;
       case 200:
         //centro sup
-        console.log("centro sup");
         dot.style.left = (w - imageWidth)/2 + 'px';
         dot.style.top = (h * 0.25 - imageHeight) + 'px';
         break;
       case 300:
         // centro der
-        console.log("centro der");
         dot.style.left = 'inherit'
         dot.style.top = (h - imageHeight)/2 + 'px';
         dot.style.right = (w * 0.15 - imageWidth) + 'px';
         break;
       case 400:
         //esq. inf. izq
-        console.log("esquina inferior izq");
         dot.style.right = 'inherit';
         dot.style.top = 'inherit';
         dot.style.left = (w * 0.15 - imageWidth) + 'px';
@@ -51,7 +46,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
         break;
       case 500:
         //esq. superior der.
-        console.log("esquina superior der");
         dot.style.bottom = 'inherit';
         dot.style.left = 'inherit';
         dot.style.right = (w * 0.15 - imageWidth) + 'px';
@@ -59,14 +53,12 @@ document.addEventListener("DOMContentLoaded", function(event) {
         break;
       case 600:
         // esq. inferior der
-        console.log("esquina inferior der");
         dot.style.top = 'inherit';
         dot.style.right = (w * 0.15 - imageWidth) + 'px';
         dot.style.bottom = (h * 0.25 - imageHeight) + 'px';
         break;
       case 700:
         // centro izq
-        console.log("centro izq");
         dot.style.bottom = 'inherit';
         dot.style.right = 'inherit';
         dot.style.left = (w * 0.15 - imageWidth) + 'px';
@@ -74,7 +66,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
         break;
       case 800:
         //centro inferior
-        console.log("centro inferior");
         dot.style.top = 'inherit';
         dot.style.right = 'inherit';
         dot.style.left = (w - imageWidth)/2 + 'px';
@@ -82,7 +73,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
         break;
       case 900:
         //  centro
-        console.log("centro");
         dot.style.bottom = 'inherit';
         dot.style.right = 'inherit';
         dot.style.left = (w - imageWidth)/2 + 'px';
